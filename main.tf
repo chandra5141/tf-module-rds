@@ -1,4 +1,4 @@
-resource "aws_rds_subnet_group" "rds_subnet_group" {
+resource "aws_rds_subnet_group" "rds1_subnet_group" {
   name       = "${var.env}-rds_subnet_group"
   subnet_ids = var.subnet_ids
 
@@ -57,7 +57,7 @@ resource "aws_rds_cluster" "rds_cluster" {
   iops                      = 1000
   master_username           = data.aws_ssm_parameter.rds_user.value
   master_password           = data.aws_ssm_parameter.rds_password.value
-  db_subnet_group_name      = aws_rds_subnet_group.rds_subnet_group.name
+  db_subnet_group_name      = aws_rds_subnet_group.rds1_subnet_group.name
   vpc_security_group_ids    = [aws_security_group.rds_sg.id]
   storage_encrypted         = true
   kms_key_id                = data.aws_kms_key.key.arn
