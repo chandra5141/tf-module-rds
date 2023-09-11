@@ -48,13 +48,13 @@ resource "aws_rds_cluster_instance" "rds_cluster_instances" {
 
 resource "aws_rds_cluster" "rds_cluster" {
   cluster_identifier        = "${var.env}-rds-cluster"
-  database_name             = "mysql"
+#  database_name             = "mysql"
   engine                    = var.engine
   engine_version            = var.engine_version
-  db_cluster_instance_class = var.instance_class
-  storage_type              = "io1"
+#  db_cluster_instance_class = var.instance_class
+#  storage_type              = "io1"
   allocated_storage         =  20
-  iops                      = 1000
+#  iops                      = 1000
   master_username           = data.aws_ssm_parameter.rds_user.value
   master_password           = data.aws_ssm_parameter.rds_password.value
   db_subnet_group_name      = aws_db_subnet_group.rds_subnet_group.name
