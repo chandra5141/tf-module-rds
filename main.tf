@@ -47,7 +47,7 @@ resource "aws_rds_cluster_instance" "rds_cluster_instances" {
 }
 
 resource "aws_rds_cluster" "rds_cluster" {
-  cluster_identifier        = "${var.env}_rds_cluster"
+  cluster_identifier        = "${var.env}-rds-cluster"
   database_name             = "mysql"
   engine                    = var.engine
   engine_version            = var.engine_version
