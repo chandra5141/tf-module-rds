@@ -37,15 +37,6 @@ resource "aws_security_group" "rds_sg" {
 
 }
 
-resource "aws_rds_cluster_instance" "rds_cluster_instances" {
-  count              = var.no_of_instance_rds
-  identifier         = "${var.env}-rds-${count.index +1}"
-  cluster_identifier = aws_rds_cluster.rds_cluster.id
-  instance_class     = var.instance_class
-  engine             = aws_rds_cluster.rds_cluster.engine
-  engine_version     = aws_rds_cluster.rds_cluster.engine_version
-}
-
 resource "aws_rds_cluster" "rds_cluster" {
   cluster_identifier        = "${var.env}-rds-cluster"
 #  database_name             = "mysql"
