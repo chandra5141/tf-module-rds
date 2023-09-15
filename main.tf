@@ -71,7 +71,7 @@ resource "aws_rds_cluster_instance" "rds_cluster_instances" {
 }
 
 resource "aws_ssm_parameter" "rds_endpoint" {
-  name  = "${var.env}.rds.endpoint"
+  name  = "${var.env}.shipping.rds.endpoint"
   type  = "String"
   value = aws_rds_cluster.rds_cluster.endpoint
 }
