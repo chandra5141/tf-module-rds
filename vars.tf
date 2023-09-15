@@ -6,3 +6,4 @@ variable "no_of_instance_rds" {}
 variable "instance_class" {}
 variable "engine_version" {}
 variable "engine" {}
+variable "bastion_cidr" {}
